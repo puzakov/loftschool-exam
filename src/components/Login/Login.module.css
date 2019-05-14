@@ -1,0 +1,18 @@
+.root {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.container {
+  flex-grow: 0;
+  min-width: 300px;
+  max-width: 25%;
+  flex-basis: 25%;
+  margin: 0;
+  box-sizing: border-box;
+}

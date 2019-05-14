@@ -1,0 +1,30 @@
+.root {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.container {
+  flex-grow: 0;
+  min-width: 250px;
+  max-width: 50%;
+  flex-basis: 50%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.formWrapper {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+}
+
+.field {
+  flex-grow: 0;
+  /* max-width: 50%; */
+  /* flex-basis: 50%; */
+  /* padding-left: 10px; */
+}
