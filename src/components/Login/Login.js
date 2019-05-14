@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAuthError, fetchRequest as authRequest } from "../../modules/Auth";
+import { getAuthError, fetchRequest as authRequest, getIsLoading } from "../../modules/Auth";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -45,7 +45,7 @@ const validator = values => {
 };
 
 const LoginForm = reduxForm({ form: "loginForm", validate: validator })(
-  ({ handleSubmit, onSubmit, serverError }) => (
+  ({ handleSubmit, onSubmit, serverError, isProcessing }) => (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Field
         component={CustomField}
@@ -72,6 +72,7 @@ const LoginForm = reduxForm({ form: "loginForm", validate: validator })(
         variant="contained"
         color="primary"
         type="submit"
+        disabled={isProcessing}
       >
         Войти
       </Button>
@@ -86,7 +87,7 @@ class Login extends Component {
   };
 
   render() {
-    const { error } = this.props;
+    const { error, isLoading } = this.props;
 
     return (
       <div className={styles.root}>
@@ -96,7 +97,7 @@ class Login extends Component {
             titleTypographyProps={{ align: "center", variant: "h4" }}
           />
           <CardContent>
-            <LoginForm onSubmit={this.handleSubmit} serverError={error} />
+            <LoginForm onSubmit={this.handleSubmit} serverError={error} isProcessing={isLoading}/>
           </CardContent>
         </Card>
       </div>
@@ -105,6 +106,6 @@ class Login extends Component {
 }
 
 export default connect(
-  state => ({ error: getAuthError(state) }),
+  state => ({ error: getAuthError(state), isLoading: getIsLoading(state) }),
   { authRequest }
 )(Login);
