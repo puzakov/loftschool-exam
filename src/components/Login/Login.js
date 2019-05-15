@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAuthError, fetchRequest as authRequest, getIsLoading } from "../../modules/Auth";
+import {
+  getAuthError,
+  fetchRequest as authRequest,
+  getIsLoading
+} from "../../modules/Auth";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -97,7 +101,11 @@ class Login extends Component {
             titleTypographyProps={{ align: "center", variant: "h4" }}
           />
           <CardContent>
-            <LoginForm onSubmit={this.handleSubmit} serverError={error} isProcessing={isLoading}/>
+            <LoginForm
+              onSubmit={this.handleSubmit}
+              serverError={error}
+              isProcessing={isLoading}
+            />
           </CardContent>
         </Card>
       </div>

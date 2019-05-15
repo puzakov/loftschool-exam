@@ -16,7 +16,7 @@ const isLoading = handleActions(
   {
     [fetchSuccess]: () => false,
     [fetchRequest]: () => true,
-    [fetchFailure]: () => false,
+    [fetchFailure]: () => false
   },
   false
 );

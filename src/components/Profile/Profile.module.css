@@ -5,15 +5,14 @@
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  min-height: 100vh;
 }
 
 .container {
   flex-grow: 0;
-  min-width: 250px;
-  max-width: 50%;
-  flex-basis: 50%;
-  margin: 0;
+  width: 350px;
+  /* max-width: 50%; */
+  /* flex-basis: 50%; */
+  margin-top: 50px;
   box-sizing: border-box;
 }
 
