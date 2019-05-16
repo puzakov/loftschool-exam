@@ -16,11 +16,6 @@
   box-sizing: border-box;
 }
 
-.formWrapper {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-}
-
 .field {
   flex-grow: 0;
   /* max-width: 50%; */

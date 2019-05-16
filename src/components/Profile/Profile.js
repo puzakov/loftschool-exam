@@ -14,7 +14,7 @@ class Profile extends Component {
             title="Профиль"
             titleTypographyProps={{ align: "center", variant: "h4" }}
           />
-          <CardContent className={styles.formWrapper}>
+          <CardContent>
             <PaymentForm />
           </CardContent>
         </Card>

@@ -37,12 +37,10 @@ const formFields = [
 ];
 
 const CustomField = ({ input, type, meta: { touched, error }, ...rest }) => {
-  console.log(input);
   return (
     <TextField
       {...input}
       fullWidth
-      // value={value}
       error={touched && error ? true : false}
       helperText={touched && error ? error : null}
       type={type}
@@ -62,16 +60,16 @@ const validator = values => {
     if (!values[name]) errors[name] = "Поле не может быть пустым";
   });
 
-  if (!errors.cardName && !RegExp(/[a-zA-Z\s]+/).test(values.cardName))
+  if (!errors.cardName && !RegExp(/^[a-z|\s]+$/i).test(values.cardName))
     errors.cardName = "Недопустимое имя";
 
-  if (!errors.expDate && !RegExp(/\d{4}-\d{2}-\d{2}/).test(values.expDate))
+  if (!errors.expDate && !RegExp(/^\d{4}-\d{2}-\d{2}$/).test(values.expDate))
     errors.expDate = "Неверный формат даты";
 
-  if (!errors.cardNumber && !RegExp(/\d{16}/).test(values.cardNumber))
+  if (!errors.cardNumber && !RegExp(/^\d{16}$/).test(values.cardNumber))
     errors.cardNumber = "Должен содержать 16 цифр";
 
-  if (!errors.cvv && !RegExp(/\d{3}/).test(values.cvv))
+  if (!errors.cvv && !RegExp(/^\d{3}$/).test(values.cvv))
     errors.cvv = "Должен содержать 3 цифры";
 
   return errors;
