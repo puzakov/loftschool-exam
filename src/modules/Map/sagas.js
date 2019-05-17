@@ -7,13 +7,13 @@ import {
   fetchRouteRequest,
   fetchRouteSuccess
 } from "./actions";
-import { getAddressList, getRoute } from "./api";
+import { apiRequest } from "../api";
 
 function* fetchListWorker() {
   yield takeLatest(fetchListRequest.toString(), function*(action) {
     try {
-      const response = yield call(getAddressList);
-      yield put(fetchListSuccess(response));
+      const response = yield call(apiRequest, "addressList");
+      yield put(fetchListSuccess(response.addresses));
     } catch {
       yield put(fetchListFailure());
     }
@@ -24,7 +24,10 @@ function* fetchRouteWorker() {
   yield takeLatest(fetchRouteRequest.toString(), function*(action) {
     const { dep, arr } = action.payload;
     try {
-      const response = yield call(getRoute, dep, arr);
+      const response = yield call(
+        apiRequest,
+        `route?address1=${dep}&address2=${arr}`
+      );
       yield put(fetchRouteSuccess(response));
     } catch {
       yield put(fetchRouteFailure());

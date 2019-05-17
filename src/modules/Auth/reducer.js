@@ -30,8 +30,4 @@ const error = handleActions(
   null
 );
 
-export const getIsAuthorized = state => state.auth.isAuthorized;
-export const getIsLoading = state => state.auth.isLoading;
-export const getAuthError = state => state.auth.error;
-
 export default combineReducers({ isAuthorized, error, isLoading });

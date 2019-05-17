@@ -20,7 +20,7 @@ import {
   resetRoute
 } from "../../modules/Map";
 import { getCardNumber } from "../../modules/Profile";
-import { initMap, mapLoadRoute, reinitMap } from "./mapbox";
+import { initMap, mapLoadRoute } from "./mapbox";
 import { CompleteProfile, OrderSuccess } from "./dialogs";
 import styles from "./Map.module.css";
 

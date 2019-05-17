@@ -45,8 +45,3 @@ export const mapLoadRoute = (map, points) => {
   });
   map.flyTo({ center: points[0], zoom });
 };
-
-export const reinitMap = (map, container) => {
-  map.remove();
-  return initMap(container);
-};

@@ -4,8 +4,6 @@ import {
   fetchListFailure,
   fetchListRequest,
   fetchListSuccess,
-  fetchRouteFailure,
-  fetchRouteRequest,
   fetchRouteSuccess,
   resetRoute
 } from "./actions";
@@ -41,10 +39,6 @@ const points = handleActions(
   },
   []
 );
-
-export const getListItems = state => state.map.list.items;
-export const getRoutePoints = state => state.map.route.points;
-export const getRouteIsLoaded = state => state.map.route.isLoaded;
 
 export default combineReducers({
   list: combineReducers({ items: listItems, isLoading: listIsLoading }),
